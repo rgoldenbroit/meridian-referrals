@@ -1,0 +1,39 @@
+# Factory's automatic PR review, from the droid-action README (Factory-AI/droid-action).
+# Set up by hand because /install-code-review needs a Manager or Owner role in the
+# Factory org. Comments post with MY_GITHUB_TOKEN (a repo-scoped token) instead of
+# the Factory Droid GitHub App. Pinned to release v13 rather than a moving branch.
+name: Droid Auto Review
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  droid-review:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Run Droid Auto Review
+        uses: Factory-AI/droid-action@v13
+        with:
+          factory_api_key: ${{ secrets.FACTORY_API_KEY }}
+          github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+          automatic_review: true
+          automatic_security_review: true
+          review_depth: deep
