@@ -99,6 +99,17 @@ test('POST /referrals without referringProviderId returns 400 referringProviderI
   assert.deepStrictEqual(res.body, { error: 'referringProviderId is required' });
 });
 
+test('POST /referrals with an invalid receivedAt returns 400 receivedAt must be a valid date', async () => {
+  const res = await request('POST', '/referrals', {
+    patientMrn: 'MRN-DEMO-9001',
+    referringProviderId: 'PRV-DEMO-90',
+    specialty: 'Cardiology',
+    receivedAt: 'not-a-date'
+  });
+  assert.strictEqual(res.status, 400);
+  assert.deepStrictEqual(res.body, { error: 'receivedAt must be a valid date' });
+});
+
 test('POST /referrals with a valid routine referral returns 201 and stores it', async () => {
   const res = await request('POST', '/referrals', {
     patientMrn: 'MRN-DEMO-9001',
