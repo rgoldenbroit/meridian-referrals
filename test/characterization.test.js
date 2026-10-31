@@ -4,13 +4,13 @@ const { once } = require('node:events');
 const app = require('../app');
 const samples = require('../data/sample-referrals.json');
 
-// Current behavior of the service, pinned before any change. R-0003 and R-0004 are
-// portal referrals marked "urgent" in lower case; today they get the routine 14-day date.
+// Expected routing for every sample referral. R-0003 and R-0004 are portal referrals
+// marked "urgent" in lower case and must get the CL-114 urgent date.
 const EXPECTED = {
   'R-0001': { department: 'CARD', scheduleBy: '2026-11-03' },
   'R-0002': { department: 'ORTHO', scheduleBy: '2026-11-09' },
-  'R-0003': { department: 'NEURO', scheduleBy: '2026-11-13' },
-  'R-0004': { department: 'ONC', scheduleBy: '2026-11-11' },
+  'R-0003': { department: 'NEURO', scheduleBy: '2026-11-03' },
+  'R-0004': { department: 'ONC', scheduleBy: '2026-10-30' },
   'R-0005': { department: 'DERM', scheduleBy: '2026-11-10' },
   'R-0006': { department: 'ORTHO', scheduleBy: '2026-11-02' }
 };
