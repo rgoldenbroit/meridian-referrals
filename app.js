@@ -1,12 +1,9 @@
-const { promisify } = require('node:util');
 const express = require('express');
 const bodyParser = require('body-parser');
 const validate = require('./lib/validate');
 const routing = require('./lib/routing');
 const store = require('./lib/store');
 const samples = require('./data/sample-referrals.json');
-
-const checkReferral = promisify(validate.check);
 
 const app = express();
 app.use(bodyParser.json());
@@ -32,7 +29,7 @@ samples.forEach(loadSample);
 app.post('/referrals', async (req, res) => {
   const referral = req.body;
   try {
-    await checkReferral(referral);
+    await validate.check(referral);
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
