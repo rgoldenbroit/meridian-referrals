@@ -1,0 +1,8 @@
+[
+  { "id": "R-0001", "patientMrn": "MRN-DEMO-0001", "referringProviderId": "PRV-DEMO-11", "specialty": "Cardiology", "priority": "URGENT", "source": "fax-intake", "receivedAt": "2026-10-30T15:00:00Z", "reason": "Chest pain on exertion, abnormal stress test" },
+  { "id": "R-0002", "patientMrn": "MRN-DEMO-0002", "referringProviderId": "PRV-DEMO-12", "specialty": "Orthopedics", "priority": "routine", "source": "community-portal", "receivedAt": "2026-10-26T14:00:00Z", "reason": "Chronic knee pain" },
+  { "id": "R-0003", "patientMrn": "MRN-DEMO-0003", "referringProviderId": "PRV-DEMO-13", "specialty": "Neurology", "priority": "urgent", "source": "community-portal", "receivedAt": "2026-10-30T15:00:00Z", "reason": "New-onset seizures" },
+  { "id": "R-0004", "patientMrn": "MRN-DEMO-0004", "referringProviderId": "PRV-DEMO-14", "specialty": "Oncology", "priority": "urgent", "source": "community-portal", "receivedAt": "2026-10-28T16:00:00Z", "reason": "Suspicious mass on imaging" },
+  { "id": "R-0005", "patientMrn": "MRN-DEMO-0005", "referringProviderId": "PRV-DEMO-15", "specialty": "Dermatology", "priority": "routine", "source": "fax-intake", "receivedAt": "2026-10-27T13:00:00Z", "reason": "Rash, 3 months" },
+  { "id": "R-0006", "patientMrn": "MRN-DEMO-0006", "referringProviderId": "PRV-DEMO-16", "specialty": "Sports Medicine", "priority": "URGENT", "source": "fax-intake", "receivedAt": "2026-10-29T15:00:00Z", "reason": "Suspected ACL tear" }
+]

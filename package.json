@@ -1,0 +1,15 @@
+{
+  "name": "referral-intake",
+  "version": "2.3.1",
+  "description": "ReferralHub intake service (Meridian Health, fictional demo)",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "1.20.9",
+    "express": "4.22.3"
+  }
+}
