@@ -18,5 +18,5 @@ Then POST referrals to http://localhost:3000/referrals and read worklists at htt
 
 ## Notes
 
-- There are no automated tests. Check with the integration team before changing routing.
+- Run `npm test` before and after any change. Check with the integration team before changing routing.
 - Demo note: Meridian Health is fictional. Everything in data/ is made up. There is no real patient information here.
