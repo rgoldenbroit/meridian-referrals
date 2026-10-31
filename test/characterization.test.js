@@ -110,6 +110,20 @@ test('POST /referrals with an invalid receivedAt returns 400 receivedAt must be 
   assert.deepStrictEqual(res.body, { error: 'receivedAt must be a valid date' });
 });
 
+for (const specialty of ['constructor', '__proto__']) {
+  test('POST /referrals with specialty ' + JSON.stringify(specialty) + ' routes to GENERAL', async () => {
+    const res = await request('POST', '/referrals', {
+      patientMrn: 'MRN-DEMO-9003',
+      referringProviderId: 'PRV-DEMO-93',
+      specialty,
+      priority: 'routine',
+      receivedAt: '2026-10-28T10:00:00Z'
+    });
+    assert.strictEqual(res.status, 201);
+    assert.strictEqual(res.body.department, 'GENERAL');
+  });
+}
+
 test('POST /referrals with a valid routine referral returns 201 and stores it', async () => {
   const res = await request('POST', '/referrals', {
     patientMrn: 'MRN-DEMO-9001',
